@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "/schema/employees",
+    "type": "object",  
+    "title": "employees",  
+    "description": "lista empleados",  
+    "required": ["status", "data", "message"],
+    "properties": {  
+        "status": {"type": "string"},
+        "data": {   
+            "type": "array",
+            "items": { "$ref": "/schemas/data" }
+        },  
+        "message": { "type": "string"}
+    },
+    "$defs": {
+        "$id": "/schemas/data",
+        "$schema": "https://json-schema.org/draft/2019-09/schema",
+        "type": "object",
+        "properties": {
+            "employee_name": { "type": "string" },
+            "employee_salary": { "type": "number" },
+            "employee_age": { "type": "number" },
+            "profile_image": { "type": ["string", "null"]}
+        },
+        "required": ["employee_name", "employee_salary", "employee_age", "profile_image"]
+    }
+}  
