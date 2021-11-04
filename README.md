@@ -9,6 +9,11 @@ Para ejecutar los test utilizar el comando:
 
 `mvn verify -Dtest="co.com.jsierra.runners.*"`
 
+Para el ejemplo se construyó un api sandbox en caso que falle el api principal, para hacer uso del sandbox
+ejecutar el comando:
+
+`mvn verify -Drestapi.baseurl=https://dummy-employee.getsandbox.com:443 -Dtest="co.com.jsierra.runners.*"`
+
 Para utilizar Jenkins por primera vez:
 1. Instalar docker
 2. En la raiz del proyecto ejecutar el comando `docker-compose up`
