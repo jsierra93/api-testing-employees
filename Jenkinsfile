@@ -8,20 +8,19 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'mvn verify -Drestapi.baseurl=https://dummy-employee.getsandbox.com:443 -Dtest="co.com.jsierra.runners.*"',
-                publishHTML([allowMissing: false,
-                                    alwaysLinkToLastBuild: true,
-                                    keepAll: true,
-                                    reportDir: 'target\\site\\serenity',
-                                    reportFiles: 'index.html',
-                                    reportName: 'Serenity API Test']
-                                    )
+                sh 'mvn verify -Drestapi.baseurl=https://dummy-employee.getsandbox.com:443 -Dtest="co.com.jsierra.runners.*"'
             }
-            post {
-                always {
-                    junit 'target/surefire-reports/**/*.xml, **/build/reports/integration-tests/TEST-*.xml'
-                }
             }
-        }
+                   stage('Publish Report') {
+                        steps {
+                           publishHTML([allowMissing: false,
+                                                               alwaysLinkToLastBuild: true,
+                                                               keepAll: true,
+                                                               reportDir: 'target/site/serenity',
+                                                               reportFiles: 'index.html',
+                                                               reportName: 'Serenity API Test']
+                                                               )
+                        }
+                    }
     }
 }
