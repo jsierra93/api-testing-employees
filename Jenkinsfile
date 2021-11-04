@@ -16,8 +16,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-               sh 'mvn verify -Dtest="co.com.jsierra.runners.*"'
-              // sh 'mvn verify -Drestapi.baseurl=https://dummy-employee.getsandbox.com:443 -Dtest="co.com.jsierra.runners.*"'
+               //sh 'mvn verify -Dtest="co.com.jsierra.runners.*"'
+              sh 'mvn verify -Drestapi.baseurl=https://dummy-employee.getsandbox.com:443 -Dtest="co.com.jsierra.runners.*"'
             }
         }
         stage('Publish Report') {

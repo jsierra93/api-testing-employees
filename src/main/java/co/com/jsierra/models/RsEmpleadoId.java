@@ -9,9 +9,9 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @Data
-public class ListaEmpleados {
+public class RsEmpleadoId {
     private String status;
-    private List<Empleado> data;
+    private Empleado data;
     private String message;
 
 }
