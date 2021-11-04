@@ -7,3 +7,4 @@ Característica: Crear empleado
       | employeeName | employeeSalary | employeeAge | profileImage                        |
       | demo demo    | 1064501        | 25          | http://dummy.image.com/profile/1234 |
     Entonces deberia obtener status code 200
+    Y deberia obtener la confirmacion del registro
