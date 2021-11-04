@@ -4,9 +4,16 @@ pipeline {
         maven 'maven3.8.3'
     }
     stages {
-         stage('Build') {
-                sh 'mvn clean build'
+        stage('Prepare Code') {
+          steps {
+               git url: 'https://github.com/jsierra93/api-testing-employees.git', branch: 'master'
          }
+        }
+         stage('Build') {
+          steps {
+                sh 'mvn clean package'
+         }
+        }
         stage('Test') {
             steps {
                sh 'mvn verify -Dtest="co.com.jsierra.runners.*"'
